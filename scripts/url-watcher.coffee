@@ -31,7 +31,7 @@ module.exports = (robot) ->
 
     request { url: url }, (error, response, body)->
       if error
-        request.get(msg_url(process.env.HUBOT_SLACK_TOKEN, url), (err, res, body) ->)
+        request.get(msg_url(process.env.HUBOT_SLACK_TOKEN, encodeURIComponent url), (err, res, body) ->)
       else
         title = extract_title(body)
         request.get(msg_url(process.env.HUBOT_SLACK_TOKEN, text(title, url, channel)), (err, res, body) ->)
