@@ -29,5 +29,4 @@ module.exports = (robot) ->
         title = encodeURI($("title").text())
 
         channel = msg.envelope.room
-        console.log title
         request.get(msg_url(process.env.HUBOT_SLACK_TOKEN, "#{title + "\n"}#{url}"), (err, res, body) ->)
