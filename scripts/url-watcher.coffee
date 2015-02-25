@@ -26,7 +26,7 @@ module.exports = (robot) ->
         request.get(msg_url(process.env.HUBOT_SLACK_TOKEN, url), (err, res, body) ->)
       else
         $ = cheerio.load convertEncode(body).toString().replace(/<!\[CDATA\[([^\]]+)]\]>/ig, "$1")
-        title = encodeURI($("title").text())
+        title = encodeURI($("title").text().replace(/\r?\n/, ''))
 
         channel = msg.envelope.room
         request.get(msg_url(process.env.HUBOT_SLACK_TOKEN, "#{title + "\n"}#{url}"), (err, res, body) ->)
