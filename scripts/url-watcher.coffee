@@ -10,7 +10,7 @@ cheerio = require 'cheerio'
 iconv   = require 'iconv'
 
 msg_url = (token, text) ->
-  "https://slack.com/api/chat.postMessage?token=#{token}&channel=%23general&text=#{text}&pretty=1&username=url%5Fwatcher"
+  "https://slack.com/api/chat.postMessage?token=#{token}&channel=%23general&text=#{text}&pretty=1&username=url%5Fwatcher&link_names=1"
 
 to_utf8 = (body) ->
   charset = body.toString('ascii').match /<meta[^>]*charset\s*=\s*["']?([-\w]+)["']?/i
